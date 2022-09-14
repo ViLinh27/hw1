@@ -131,7 +131,7 @@ const Product = class Product {
         //reference: // const user = arr.find(element => element.id === "765");
 
         //find what products are in stock
-        let inStockArr = products.find(element =>element.availability === "In Stock");
+        let inStockArr = products.filter(element =>element.availability === "In Stock");
         return inStockArr;
     }
 
@@ -175,11 +175,12 @@ const Product = class Product {
         //available vars
         let avail = 'Yes'
         let notAvail = 'No'
+        let isProduct = true;
 
         if(products.availability === 'In Stock'){
             console.log(`Product: ${products.name}, Cost: ${products.price}, Available: ${avail}`);
         }
-        else if(products.availability === 'Out of Stock'){
+        else{
             console.log(`Product: ${products.name}, Cost: ${products.price}, Available: ${notAvail}`);
         }
         
