@@ -45,14 +45,13 @@ const Homework1 = class Homework1 {
 const Circle = class Circle { 
     //properties init in constructor
     constructor(radius,color){
-        this.radius = radius;
+        this.radius = parseFloat(radius);
         this.color = color;
     }
 
     calcArea(){
         //return area
-        let area = radius * radius * Math.PI;
-        return area;
+        return this.radius * this.radius * Math.PI;
     }
 
 }
@@ -83,7 +82,7 @@ const Student = class Student {
         this.gpa = gpa;
         this.degreeType = degreeType;
     }
-
+    //check the declarations of these just to be safe:
     grade = undefined;
     graduated = false;
 }
@@ -103,6 +102,19 @@ const Student = class Student {
  */
 
 const Product = class Product {
+    constructor(strInput){
+        //parse the input accordingly
+        this.strInput = strInput;
+        const strArr = strInput.split(",");
+
+        let name=strArr[0];
+        let price = parseFloat(strArr[1]);
+        let availability = strArr[2];
+
+        this.name= name;
+        this.price = price;
+        this.availability = availability;
+    }
 
     /**
      * *****************
@@ -115,7 +127,13 @@ const Product = class Product {
      * This can be implmeneted in one line.
      * Reference: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array 
      */
-    static inStock = (products) => {}
+    static inStock = (products) => {
+        //reference: // const user = arr.find(element => element.id === "765");
+
+        //find what products are in stock
+        let inStockArr = products.find(element =>element.availability === "In Stock");
+
+    }
 
 
     /**
@@ -129,7 +147,16 @@ const Product = class Product {
      * This method can also be written in one line; if doing so, consider using String interpolation when calling the product constructor
      * Reference: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array 
      */
-    static halfOff = (products) => {}
+    static halfOff = (products) => {//---need fix
+        //reference:
+        /*
+            const arr = [1, 2, 3, 4]
+            const arrPlus2 = arr.map((element) => element + 2);
+            console.log(arr);
+            console.log(arrPlus2);
+        */
+
+    }
 
     /**
      * *****************
@@ -144,7 +171,19 @@ const Product = class Product {
      * Reference: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array 
      * Reference: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat (currency formatting)
      */
-    static printProducts = (products) => {}
+    static printProducts = (products) => { //---need fix
+        //available vars
+        let avail = 'Yes'
+        let notAvail = 'No'
+
+        if(products.availability === 'In Stock'){
+            console.log(`Product: ${products.name}, Cost: ${products.price}, Available: ${avail}`);
+        }
+        else if(products.availability === 'Out of Stock'){
+            console.log(`Product: ${products.name}, Cost: ${products.price}, Available: ${notAvail}`);
+        }
+        
+    }
 
  };
 
