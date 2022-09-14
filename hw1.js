@@ -132,7 +132,7 @@ const Product = class Product {
 
         //find what products are in stock
         let inStockArr = products.find(element =>element.availability === "In Stock");
-
+        return inStockArr;
     }
 
 
