@@ -42,7 +42,20 @@ const Homework1 = class Homework1 {
  * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math
  */
 
-const Circle = class Circle { }
+const Circle = class Circle { 
+    //properties init in constructor
+    constructor(radius,color){
+        this.radius = radius;
+        this.color = color;
+    }
+
+    calcArea(){
+        //return area
+        let area = radius * radius * Math.PI;
+        return area;
+    }
+
+}
 
 
 /**
@@ -63,7 +76,17 @@ const Circle = class Circle { }
  * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes
  */
 
-const Student = class Student { }
+const Student = class Student { 
+    constructor(firstName,lastName,gpa,degreeType){
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.gpa = gpa;
+        this.degreeType = degreeType;
+    }
+
+    grade = undefined;
+    graduated = false;
+}
 
 
 /**
