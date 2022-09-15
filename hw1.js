@@ -104,7 +104,7 @@ const Student = class Student {
 const Product = class Product {
     constructor(strInput){
         //parse the input accordingly
-        this.strInput = strInput;
+        //this.strInput = strInput;
         const strArr = strInput.split(",");
 
         let name=strArr[0];
@@ -155,7 +155,22 @@ const Product = class Product {
             console.log(arr);
             console.log(arrPlus2);
         */
-       const halfPriceArr = products.map(element=> parseFloat( element.price * 0.5));
+       const halfPriceArr = products.map((element)=> new Product(`${element.name},${parseFloat( element.price * 0.5)},${element.availability}`));
+       //debug:
+       //console.log("-------typeof products[0].price "+typeof products[0].price)
+    //    console.log("-------products[0]"+ products[0]);
+    //    console.log("-------typeof products[0] "+ typeof products[0]);
+    //    console.log("-------products[0].name "+products[0].name)
+    //    console.log("-------products[0].price "+products[0].price)
+    //    console.log("-------products[0].availability "+products[0].availability)
+    //    console.log("-------products "+products)
+    //    console.log("-------halfpricedarr: "+halfPriceArr)
+    //    console.log("-------halfPricedArr[0] "+halfPriceArr[0])
+    //    console.log("-------typeof halfPricedArr[0] "+typeof halfPriceArr[0])
+    //    console.log("-------halfPricedArr[0].name "+halfPriceArr[0].name)
+    //    console.log("-------halfPricedArr[0].price "+halfPriceArr[0].price)
+    //    console.log("-------halfPricedArr[0].availability "+halfPriceArr[0].availability)
+
        return halfPriceArr;
     }
 
