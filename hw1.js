@@ -155,7 +155,8 @@ const Product = class Product {
             console.log(arr);
             console.log(arrPlus2);
         */
-
+       const halfPriceArr = products.map(element=> parseFloat( element.price * 0.5));
+       return halfPriceArr;
     }
 
     /**
@@ -175,7 +176,7 @@ const Product = class Product {
         //available vars
         let avail = 'Yes'
         let notAvail = 'No'
-        let isProduct = true;
+        //let isProduct = true;
 
         if(products.availability === 'In Stock'){
             console.log(`Product: ${products.name}, Cost: ${products.price}, Available: ${avail}`);
