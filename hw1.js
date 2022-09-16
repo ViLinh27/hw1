@@ -192,13 +192,16 @@ const Product = class Product {
         let avail = 'Yes'
         let notAvail = 'No'
         //let isProduct = true;
-
-        if(products.availability === 'In Stock'){
-            console.log(`Product: ${products.name}, Cost: ${products.price}, Available: ${avail}`);
+        for(let i=0;i<products.length;i++){
+            if(products[i].availability === 'In Stock'){
+                console.log(`Product: ${products[i].name}, Cost: ${new Intl.NumberFormat('us-US', {style: 'currency', currency: 'USD'}).format(products[i].price)}, Availability: ${avail}`);
+            }
+            else{
+                console.log(`Product: ${products[i].name}, Cost: ${new Intl.NumberFormat('us-US', {style: 'currency', currency: 'USD'}).format(products[i].price)}, Availability: ${notAvail}`);
+            }
         }
-        else{
-            console.log(`Product: ${products.name}, Cost: ${products.price}, Available: ${notAvail}`);
-        }
+        //debug
+        // console.log(`Product: ${products.name}, Cost: ${products.price}, Available: ${products.availability}`);
         
     }
 
